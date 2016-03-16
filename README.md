@@ -2,7 +2,9 @@
 
 Recognizing the vascular network of the eye
 
-Kod projektu: AS15
+Project code: AS15
+
+For fixing references missing files are located in "References" folder just add them to project :)
 
 Data set:
 http://www5.cs.fau.de/research/data/fundus-images
