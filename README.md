@@ -1,5 +1,7 @@
 # ComputerVision-ImageRecognition
 
+Recognizing the vascular network of the eye
+
 Kod projektu: AS15
 
 Data set:
