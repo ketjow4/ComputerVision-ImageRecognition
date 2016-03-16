@@ -20,3 +20,6 @@ https://sourceforge.net/projects/emgucv/files/emgucv/3.1.0/libemgucv-windesktop-
 
 Big data set:
 https://www.kaggle.com/c/diabetic-retinopathy-detection/data
+
+Bad examples data set:
+http://isbb.ktu.edu.tr/multimedia/drimdb/drimdb_bad/index.html
