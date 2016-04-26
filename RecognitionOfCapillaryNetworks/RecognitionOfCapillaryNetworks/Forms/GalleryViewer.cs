@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Emgu.CV;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
+
 
 namespace RecognitionOfCapillaryNetworks.Forms
 {
@@ -16,6 +20,8 @@ namespace RecognitionOfCapillaryNetworks.Forms
         private FolderBrowserDialog folderBrowserDialog;
 
         private GalleryViewerManager manager;
+
+        private static readonly CascadeClassifier Classifier = new CascadeClassifier("haarcascade_frontalface_alt_tree.xml");
 
         public GalleryViewer()
         {
@@ -54,5 +60,47 @@ namespace RecognitionOfCapillaryNetworks.Forms
             }
             
         }
+
+        private void RecognizeButton_Click(object sender, EventArgs e)
+        {
+            //Mat a = BitmapToMat(new Bitmap(pictureArea.Image));
+            Image<Bgr, Byte> img = new Image<Bgr, Byte>(new Bitmap(pictureArea.Image));
+            Image<Gray, byte> grayImage = img.Convert<Gray, byte>();
+            
+            var b = Classifier.DetectMultiScale(grayImage,1.05,3,new Size(20,20),new Size(grayImage.Width,grayImage.Height));
+
+            foreach(var rect in b)
+            {
+                img.Draw(rect, new Bgr(Color.FromArgb(255,0,0)), 5);
+            }
+            pictureArea.Image = img.ToBitmap();
+        }
+
+
+
+
+        System.Drawing.Bitmap MatToBitmap( Mat srcImg)
+        {
+            return srcImg.Bitmap;
+        }
+
+        private void LoadHaarButton_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "*.xml|*.xml";
+            ofd.Multiselect = false;
+            ofd.ShowDialog();
+            //string directoryPath = Path.GetDirectoryName(ofd.FileName);
+            
+        }
+
+
+
+        //Mat BitmapToMat(System.Drawing.Bitmap bitmap)
+        //{
+        //    Image<Bgr, Byte> img = new Image<Bgr, Byte>(bitmap);
+        //    return img.Mat;
+        //}
+
     }
 }

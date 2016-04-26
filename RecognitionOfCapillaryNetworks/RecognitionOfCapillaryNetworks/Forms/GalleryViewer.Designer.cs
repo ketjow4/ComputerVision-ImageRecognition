@@ -33,6 +33,8 @@
             this.dirValue = new System.Windows.Forms.Label();
             this.dirChooserButton = new System.Windows.Forms.Button();
             this.filesListBox = new System.Windows.Forms.ListBox();
+            this.RecognizeButton = new System.Windows.Forms.Button();
+            this.LoadHaarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +43,7 @@
             this.pictureArea.Location = new System.Drawing.Point(12, 12);
             this.pictureArea.Name = "pictureArea";
             this.pictureArea.Size = new System.Drawing.Size(376, 514);
-            this.pictureArea.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureArea.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureArea.TabIndex = 0;
             this.pictureArea.TabStop = false;
             // 
@@ -65,7 +67,7 @@
             // 
             // dirChooserButton
             // 
-            this.dirChooserButton.Location = new System.Drawing.Point(484, 27);
+            this.dirChooserButton.Location = new System.Drawing.Point(394, 28);
             this.dirChooserButton.Name = "dirChooserButton";
             this.dirChooserButton.Size = new System.Drawing.Size(75, 23);
             this.dirChooserButton.TabIndex = 5;
@@ -82,11 +84,33 @@
             this.filesListBox.TabIndex = 6;
             this.filesListBox.Click += new System.EventHandler(this.filesListBox_Click);
             // 
+            // RecognizeButton
+            // 
+            this.RecognizeButton.Location = new System.Drawing.Point(475, 28);
+            this.RecognizeButton.Name = "RecognizeButton";
+            this.RecognizeButton.Size = new System.Drawing.Size(75, 23);
+            this.RecognizeButton.TabIndex = 7;
+            this.RecognizeButton.Text = "Recognize";
+            this.RecognizeButton.UseVisualStyleBackColor = true;
+            this.RecognizeButton.Click += new System.EventHandler(this.RecognizeButton_Click);
+            // 
+            // LoadHaarButton
+            // 
+            this.LoadHaarButton.Location = new System.Drawing.Point(557, 27);
+            this.LoadHaarButton.Name = "LoadHaarButton";
+            this.LoadHaarButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadHaarButton.TabIndex = 8;
+            this.LoadHaarButton.Text = "LoadHaar";
+            this.LoadHaarButton.UseVisualStyleBackColor = true;
+            this.LoadHaarButton.Click += new System.EventHandler(this.LoadHaarButton_Click);
+            // 
             // GalleryViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 538);
+            this.Controls.Add(this.LoadHaarButton);
+            this.Controls.Add(this.RecognizeButton);
             this.Controls.Add(this.filesListBox);
             this.Controls.Add(this.dirChooserButton);
             this.Controls.Add(this.dirValue);
@@ -108,5 +132,7 @@
         private System.Windows.Forms.Label dirValue;
         private System.Windows.Forms.Button dirChooserButton;
         private System.Windows.Forms.ListBox filesListBox;
+        private System.Windows.Forms.Button RecognizeButton;
+        private System.Windows.Forms.Button LoadHaarButton;
     }
 }
