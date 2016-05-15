@@ -38,15 +38,19 @@
             // 
             // pictureArea
             // 
+            this.pictureArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureArea.Location = new System.Drawing.Point(12, 12);
             this.pictureArea.Name = "pictureArea";
             this.pictureArea.Size = new System.Drawing.Size(376, 514);
-            this.pictureArea.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureArea.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureArea.TabIndex = 0;
             this.pictureArea.TabStop = false;
             // 
             // dirName
             // 
+            this.dirName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dirName.AutoSize = true;
             this.dirName.Location = new System.Drawing.Point(394, 12);
             this.dirName.Name = "dirName";
@@ -56,6 +60,7 @@
             // 
             // dirValue
             // 
+            this.dirValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dirValue.AutoSize = true;
             this.dirValue.Location = new System.Drawing.Point(481, 11);
             this.dirValue.Name = "dirValue";
@@ -65,6 +70,7 @@
             // 
             // dirChooserButton
             // 
+            this.dirChooserButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dirChooserButton.Location = new System.Drawing.Point(484, 27);
             this.dirChooserButton.Name = "dirChooserButton";
             this.dirChooserButton.Size = new System.Drawing.Size(75, 23);
@@ -75,6 +81,8 @@
             // 
             // filesListBox
             // 
+            this.filesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.filesListBox.FormattingEnabled = true;
             this.filesListBox.Location = new System.Drawing.Point(394, 67);
             this.filesListBox.Name = "filesListBox";
@@ -92,7 +100,7 @@
             this.Controls.Add(this.dirValue);
             this.Controls.Add(this.dirName);
             this.Controls.Add(this.pictureArea);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(723, 577);
             this.Name = "GalleryViewer";
             this.Text = "GalleryViewer";
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).EndInit();
