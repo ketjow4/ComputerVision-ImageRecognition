@@ -47,7 +47,8 @@ namespace RecognitionOfCapillaryNetworks.Forms
 
         private void filesListBox_Click(object sender, EventArgs e)
         {
-            pictureArea.Image = Image.FromFile(((ListBox)sender).SelectedItem.ToString());
+            if(((ListBox)sender).SelectedItem!=null)
+                pictureArea.Image = Image.FromFile(((ListBox)sender).SelectedItem.ToString());
         }
 
         private void loadImages()

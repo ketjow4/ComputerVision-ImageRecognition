@@ -23,3 +23,7 @@ https://www.kaggle.com/c/diabetic-retinopathy-detection/data
 
 Bad examples data set:
 http://isbb.ktu.edu.tr/multimedia/drimdb/drimdb_bad/index.html
+
+Tutorial for HAAR Classifier:
+-- http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html
+-- http://note.sonots.com/SciSoftware/haartraining.html
