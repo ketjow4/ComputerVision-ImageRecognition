@@ -147,7 +147,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="lena.jpg">
+    <Content Include="HaarClassifiers\haarcascade_frontalface_alt_tree.xml" />
+    <Content Include="TestImages\lena.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="OpenCV\opencv_ffmpeg310_64.dll">
@@ -159,6 +160,7 @@
     <Content Include="OpenCV\opencv_world310d.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestImages\len_full.jpg" />
     <Content Include="X64\cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -21,7 +21,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
 
         private GalleryViewerManager manager;
 
-        private static readonly CascadeClassifier Classifier = new CascadeClassifier("haarcascade_frontalface_alt_tree.xml");
+        private static readonly CascadeClassifier Classifier = new CascadeClassifier(@"..\..\..\HaarClassifiers\haarcascade_frontalface_alt_tree.xml");
 
         public GalleryViewer()
         {
@@ -29,6 +29,11 @@ namespace RecognitionOfCapillaryNetworks.Forms
             folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.ShowNewFolderButton = false;
             InitializeComponent();
+
+#if DEBUG
+            pictureArea.Image = Image.FromFile(@"..\..\..\TestImages\len_full.jpg");
+#endif
+
         }
 
         private void dirChooserButton_Click(object sender, EventArgs e)

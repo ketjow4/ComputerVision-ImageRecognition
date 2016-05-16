@@ -40,6 +40,9 @@
             // 
             // pictureArea
             // 
+            this.pictureArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureArea.Location = new System.Drawing.Point(12, 12);
             this.pictureArea.Name = "pictureArea";
             this.pictureArea.Size = new System.Drawing.Size(376, 514);
@@ -49,6 +52,7 @@
             // 
             // dirName
             // 
+            this.dirName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dirName.AutoSize = true;
             this.dirName.Location = new System.Drawing.Point(394, 12);
             this.dirName.Name = "dirName";
@@ -58,6 +62,7 @@
             // 
             // dirValue
             // 
+            this.dirValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dirValue.AutoSize = true;
             this.dirValue.Location = new System.Drawing.Point(481, 11);
             this.dirValue.Name = "dirValue";
@@ -67,6 +72,7 @@
             // 
             // dirChooserButton
             // 
+            this.dirChooserButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dirChooserButton.Location = new System.Drawing.Point(394, 28);
             this.dirChooserButton.Name = "dirChooserButton";
             this.dirChooserButton.Size = new System.Drawing.Size(75, 23);
@@ -77,6 +83,8 @@
             // 
             // filesListBox
             // 
+            this.filesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.filesListBox.FormattingEnabled = true;
             this.filesListBox.Location = new System.Drawing.Point(394, 67);
             this.filesListBox.Name = "filesListBox";
@@ -86,21 +94,23 @@
             // 
             // RecognizeButton
             // 
+            this.RecognizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RecognizeButton.Location = new System.Drawing.Point(475, 28);
             this.RecognizeButton.Name = "RecognizeButton";
             this.RecognizeButton.Size = new System.Drawing.Size(75, 23);
             this.RecognizeButton.TabIndex = 7;
-            this.RecognizeButton.Text = "Recognize";
+            this.RecognizeButton.Text = "Rozpoznaj";
             this.RecognizeButton.UseVisualStyleBackColor = true;
             this.RecognizeButton.Click += new System.EventHandler(this.RecognizeButton_Click);
             // 
             // LoadHaarButton
             // 
+            this.LoadHaarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LoadHaarButton.Location = new System.Drawing.Point(557, 27);
             this.LoadHaarButton.Name = "LoadHaarButton";
-            this.LoadHaarButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadHaarButton.Size = new System.Drawing.Size(138, 23);
             this.LoadHaarButton.TabIndex = 8;
-            this.LoadHaarButton.Text = "LoadHaar";
+            this.LoadHaarButton.Text = "Załaduj klasyfikator";
             this.LoadHaarButton.UseVisualStyleBackColor = true;
             this.LoadHaarButton.Click += new System.EventHandler(this.LoadHaarButton_Click);
             // 
@@ -116,7 +126,7 @@
             this.Controls.Add(this.dirValue);
             this.Controls.Add(this.dirName);
             this.Controls.Add(this.pictureArea);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(723, 577);
             this.Name = "GalleryViewer";
             this.Text = "GalleryViewer";
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).EndInit();
