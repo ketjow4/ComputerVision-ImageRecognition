@@ -119,6 +119,7 @@
     <Compile Include="Managers\GalleryViewerManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingletonClasses\HaarClassifierClass.cs" />
     <EmbeddedResource Include="Forms\GalleryViewer.resx">
       <DependentUpon>GalleryViewer.cs</DependentUpon>
     </EmbeddedResource>

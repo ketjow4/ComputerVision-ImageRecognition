@@ -1,4 +1,5 @@
 ﻿using RecognitionOfCapillaryNetworks.Managers;
+using RecognitionOfCapillaryNetworks.SingletonClasses;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -23,7 +24,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
             folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.ShowNewFolderButton = false;
             InitializeComponent();
-
+            
 #if DEBUG
             pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
 #endif
