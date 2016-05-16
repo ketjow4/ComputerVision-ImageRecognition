@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GalleryViewer));
             this.pictureArea = new System.Windows.Forms.PictureBox();
             this.dirName = new System.Windows.Forms.Label();
             this.dirValue = new System.Windows.Forms.Label();
@@ -91,6 +92,7 @@
             this.filesListBox.Size = new System.Drawing.Size(301, 459);
             this.filesListBox.TabIndex = 6;
             this.filesListBox.Click += new System.EventHandler(this.filesListBox_Click);
+            this.filesListBox.SelectedIndexChanged += new System.EventHandler(this.filesListBox_SelectedIndexChanged);
             // 
             // RecognizeButton
             // 
@@ -118,6 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(707, 538);
             this.Controls.Add(this.LoadHaarButton);
             this.Controls.Add(this.RecognizeButton);
@@ -126,6 +129,7 @@
             this.Controls.Add(this.dirValue);
             this.Controls.Add(this.dirName);
             this.Controls.Add(this.pictureArea);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(723, 577);
             this.Name = "GalleryViewer";
             this.Text = "GalleryViewer";

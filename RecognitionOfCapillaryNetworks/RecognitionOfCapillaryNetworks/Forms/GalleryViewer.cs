@@ -1,15 +1,9 @@
 ﻿using RecognitionOfCapillaryNetworks.Managers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Emgu.CV;
-using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 
 
@@ -31,10 +25,12 @@ namespace RecognitionOfCapillaryNetworks.Forms
             InitializeComponent();
 
 #if DEBUG
-            pictureArea.Image = Image.FromFile(@"..\..\..\TestImages\len_full.jpg");
+            pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
 #endif
 
         }
+
+        #region dirChooserButton
 
         private void dirChooserButton_Click(object sender, EventArgs e)
         {
@@ -50,46 +46,53 @@ namespace RecognitionOfCapillaryNetworks.Forms
             }
         }
 
+        #endregion
+
+        #region filesListBox
+
         private void filesListBox_Click(object sender, EventArgs e)
         {
             if(((ListBox)sender).SelectedItem!=null)
                 pictureArea.Image = Image.FromFile(((ListBox)sender).SelectedItem.ToString());
         }
 
-        private void loadImages()
+        private void filesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            filesListBox.Items.Clear();
-            List<string> fName = manager.GetAllFilesNameFromDirectory();
-            foreach(string path in fName)
-            {
-                filesListBox.Items.Add(path);
-            }
-            
+            if (((ListBox)sender).SelectedItem != null)
+                pictureArea.Image = Image.FromFile(((ListBox)sender).SelectedItem.ToString());
         }
+
+        #endregion
+
+        #region RecognizeButton
 
         private void RecognizeButton_Click(object sender, EventArgs e)
         {
             //Mat a = BitmapToMat(new Bitmap(pictureArea.Image));
-            Image<Bgr, Byte> img = new Image<Bgr, Byte>(new Bitmap(pictureArea.Image));
-            Image<Gray, byte> grayImage = img.Convert<Gray, byte>();
-            
-            var b = Classifier.DetectMultiScale(grayImage,1.05,3,new Size(20,20),new Size(grayImage.Width,grayImage.Height));
+            try
+            { 
+                Image<Bgr, Byte> img = new Image<Bgr, Byte>(new Bitmap(pictureArea.Image));
+                Image<Gray, byte> grayImage = img.Convert<Gray, byte>();
 
-            foreach(var rect in b)
-            {
-                img.Draw(rect, new Bgr(Color.FromArgb(255,0,0)), 5);
+                var b = Classifier.DetectMultiScale(grayImage, 1.05, 3, new Size(20, 20), new Size(grayImage.Width, grayImage.Height));
+
+                foreach (var rect in b)
+                {
+                    img.Draw(rect, new Bgr(Color.FromArgb(255, 0, 0)), 5);
+                }
+                pictureArea.Image = img.ToBitmap();
             }
-            pictureArea.Image = img.ToBitmap();
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debugger.Log(1, "Exception", "Złapano wyjątek: " + ex.Message);
+            }
         }
 
+        #endregion
 
+        #region LoadHaarButton
 
-
-        System.Drawing.Bitmap MatToBitmap( Mat srcImg)
-        {
-            return srcImg.Bitmap;
-        }
-
+        #warning To coś w ogole robi?
         private void LoadHaarButton_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
@@ -100,13 +103,22 @@ namespace RecognitionOfCapillaryNetworks.Forms
             
         }
 
+        #endregion
 
+        private void loadImages()
+        {
+            filesListBox.Items.Clear();
+            List<string> fName = manager.GetAllFilesNameFromDirectory();
+            foreach (string path in fName)
+            {
+                filesListBox.Items.Add(path); 
+            }
 
-        //Mat BitmapToMat(System.Drawing.Bitmap bitmap)
-        //{
-        //    Image<Bgr, Byte> img = new Image<Bgr, Byte>(bitmap);
-        //    return img.Mat;
-        //}
+        }
 
+        System.Drawing.Bitmap MatToBitmap(Mat srcImg)
+        {
+            return srcImg.Bitmap;
+        }
     }
 }
