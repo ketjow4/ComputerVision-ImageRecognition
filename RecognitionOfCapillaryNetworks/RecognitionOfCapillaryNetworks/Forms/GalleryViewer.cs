@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Emgu.CV;
-using Emgu.CV.Structure;
 
 
 namespace RecognitionOfCapillaryNetworks.Forms
@@ -71,17 +70,9 @@ namespace RecognitionOfCapillaryNetworks.Forms
         {
             //Mat a = BitmapToMat(new Bitmap(pictureArea.Image));
             try
-            { 
-                Image<Bgr, Byte> img = new Image<Bgr, Byte>(new Bitmap(pictureArea.Image));
-                Image<Gray, byte> grayImage = img.Convert<Gray, byte>();
-
-                var b = Classifier.DetectMultiScale(grayImage, 1.05, 3, new Size(20, 20), new Size(grayImage.Width, grayImage.Height));
-
-                foreach (var rect in b)
-                {
-                    img.Draw(rect, new Bgr(Color.FromArgb(255, 0, 0)), 5);
-                }
-                pictureArea.Image = img.ToBitmap();
+            {
+                int detection;
+                pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image),out detection).ToBitmap();
             }
             catch(Exception ex)
             {
@@ -93,15 +84,15 @@ namespace RecognitionOfCapillaryNetworks.Forms
 
         #region LoadHaarButton
 
-        #warning To coś w ogole robi?
         private void LoadHaarButton_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
             ofd.Filter = "*.xml|*.xml";
             ofd.Multiselect = false;
-            ofd.ShowDialog();
-            //string directoryPath = Path.GetDirectoryName(ofd.FileName);
-            
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                HaarClassifierClass.Instance.ClassifierPath = ofd.FileName;
+            }
         }
 
         #endregion
@@ -117,7 +108,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
 
         }
 
-        System.Drawing.Bitmap MatToBitmap(Mat srcImg)
+        Bitmap MatToBitmap(Mat srcImg)
         {
             return srcImg.Bitmap;
         }
