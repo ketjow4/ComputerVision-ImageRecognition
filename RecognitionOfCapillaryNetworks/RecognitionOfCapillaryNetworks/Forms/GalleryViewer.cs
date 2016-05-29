@@ -15,8 +15,6 @@ namespace RecognitionOfCapillaryNetworks.Forms
 
         private GalleryViewerManager manager;
 
-        private static readonly CascadeClassifier Classifier = new CascadeClassifier(@"..\..\..\HaarClassifiers\haarcascade_frontalface_alt_tree.xml");
-
         public GalleryViewer()
         {
             manager = new GalleryViewerManager();
@@ -73,8 +71,11 @@ namespace RecognitionOfCapillaryNetworks.Forms
             {
                 int detection;
                 pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image),out detection).ToBitmap();
+#if DEBUG
+                MessageBox.Show("Found: " + detection.ToString() + " features");
+#endif
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 System.Diagnostics.Debugger.Log(1, "Exception", "Złapano wyjątek: " + ex.Message);
             }

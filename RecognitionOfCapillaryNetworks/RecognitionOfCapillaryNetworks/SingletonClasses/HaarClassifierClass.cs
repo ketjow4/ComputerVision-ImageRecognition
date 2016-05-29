@@ -11,7 +11,7 @@ namespace RecognitionOfCapillaryNetworks.SingletonClasses
 
         private CascadeClassifier classifier;
 
-        private string classifierPath = @"..\..\..\HaarClassifiers\haarcascade_frontalface_alt_tree.xml";
+        private string classifierPath = @"..\..\..\HaarClassifiers\NauczoneDoTestu.xml";
 
         private HaarClassifierClass()
         {
@@ -28,16 +28,18 @@ namespace RecognitionOfCapillaryNetworks.SingletonClasses
         {
             numberOfDetection = 0;
             Image<Bgr, Byte> img = new Image<Bgr, Byte>(imageToProcess);
-            Image<Gray, byte> grayImage = img.Convert<Gray, byte>();
+            Image<Gray, byte> grayImage = img[1];
 
-            var detections = classifier.DetectMultiScale(grayImage, 1.05, 3, new Size(20, 20), new Size(grayImage.Width, grayImage.Height));
 
-            foreach(var detect in detections)
+            //var detections = classifier.DetectMultiScale(grayImage, 1.05, 3, new Size(5, 5), new Size(grayImage.Width, grayImage.Height));
+            var detections = classifier.DetectMultiScale(grayImage, 1.015, 1, new Size(12, 12), new Size(240, 240));
+
+            foreach (var detect in detections)
             {
                 img.Draw(detect, new Bgr(Color.FromArgb(255, 0, 0)), 5);
                 numberOfDetection++;
             }
-
+            
             return img;
         }
 

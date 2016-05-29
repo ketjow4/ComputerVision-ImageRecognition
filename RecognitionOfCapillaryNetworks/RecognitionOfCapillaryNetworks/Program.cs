@@ -23,7 +23,7 @@ namespace RecognitionOfCapillaryNetworks
             Application.Run(new GalleryViewer());
 
             //Mat img =  CvInvoke.Imread("lena.jpg", Emgu.CV.CvEnum.LoadImageType.AnyColor);
-            //CvInvoke.Imshow("Window", img);
+            //
             //CvInvoke.WaitKey(0);  //Wait for the key pressing event
         }
     }
