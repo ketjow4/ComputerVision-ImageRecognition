@@ -30,16 +30,29 @@ namespace RecognitionOfCapillaryNetworks.SingletonClasses
             Image<Bgr, Byte> img = new Image<Bgr, Byte>(imageToProcess);
             Image<Gray, byte> grayImage = img[1];
 
+            
+            var a = grayImage.Clone();
+            Image<Gray, Byte> c = a.Convert<Byte>(delegate (Byte b) { return (Byte)(0); });
 
             //var detections = classifier.DetectMultiScale(grayImage, 1.05, 3, new Size(5, 5), new Size(grayImage.Width, grayImage.Height));
-            var detections = classifier.DetectMultiScale(grayImage, 1.015, 1, new Size(12, 12), new Size(240, 240));
+            var detections = classifier.DetectMultiScale(grayImage, 1.05, 1, new Size(12, 12), new Size(240, 240));
 
             foreach (var detect in detections)
             {
+                grayImage.ROI = detect;
+                var roi = grayImage.Clone();
+                //roi.ThresholdBinaryInv(new Gray(100), new Gray(255));        TODO: FIX THIS
                 img.Draw(detect, new Bgr(Color.FromArgb(255, 0, 0)), 5);
                 numberOfDetection++;
+                c.ROI = detect;
+                roi.CopyTo(c);
             }
-            
+     
+            c.ROI = Rectangle.Empty;
+        #if DEBUG
+            Emgu.CV.CvInvoke.Imshow("dsadsa", c);      
+            CvInvoke.WaitKey(2);
+        #endif
             return img;
         }
 
