@@ -27,7 +27,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
 #if DEBUG
             pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
 
-            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\lena.jpg");
+            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\01_dr_gorsze.jpg");
 #endif
 
         }
@@ -123,7 +123,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
         private void segmentationButton_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
-            ofd.Filter = "*.jpg|*.png|*.gif";
+            ofd.Filter = "*.jpg|*.jpg|*.png|*.png|*.gif|*.gif";
             ofd.Multiselect = false;
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -131,10 +131,11 @@ namespace RecognitionOfCapillaryNetworks.Forms
                 Image<Gray, Byte> normalizedMasterImage = new Image<Gray, Byte>(masterImage);
 
                 Bitmap processImage = (Bitmap)processPictureBox.Image;
-                Image<Gray, Byte> normalizedProcessImage = new Image<Gray, Byte>(masterImage);
+                Image<Gray, Byte> normalizedProcessImage = new Image<Gray, Byte>(processImage);
 
-                var result = QualityManager.ComputeQualityOfImages(normalizedMasterImage, normalizedProcessImage/*, threshold.Value*/);
+                var result = QualityManager.ComputeQualityOfImages(normalizedMasterImage, normalizedProcessImage, threshold.Value);
                 SetQualityInformationLables(result);
+
             }
         }
 

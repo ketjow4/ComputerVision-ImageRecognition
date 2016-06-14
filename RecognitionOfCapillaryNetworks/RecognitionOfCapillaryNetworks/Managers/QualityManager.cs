@@ -13,14 +13,54 @@ namespace RecognitionOfCapillaryNetworks.Managers
     /// </summary>
     public class QualityManager
     {
-        public static QualityResult ComputeQualityOfImages(Image<Gray, Byte> patternImage, Image<Gray, Byte> computedImage)
+        public static QualityResult ComputeQualityOfImages(Image<Gray, Byte> patternImageGray, Image<Gray, Byte> computedImageGray,decimal threshold)
         {
             var result = new QualityResult();
-
-            //foreach (var pixel in computedImage.)
-            //{ }
+            if (patternImageGray.Size != computedImageGray.Size)
+                throw new Exception("Różne rozmiary obrazów");
+            var patternImage = ConvertToBW(patternImageGray, threshold);
+            var computedImage = ConvertToBW(computedImageGray, threshold);
+            for (int i = 0; i < patternImage.Size.Width; i++)
+                for (int j = 0; j < patternImage.Size.Height; j++)
+                {
+                    var patternColor = patternImage.Data[j, i, 0];
+                    var computedColor = computedImage.Data[j, i, 0];
+                    if (computedColor == 0) //wykryto
+                    {
+                        if (patternColor == 0)//true positive
+                            result.TruePositives++;
+                        else//false positive
+                            result.FalsePositives++;
+                    }
+                    else//nie wykryto
+                    {
+                        if (patternColor == 0)//true positive
+                            result.FalseNegatives++;
+                        else//false positive
+                            result.TrueNegatives++;
+                    }                  
+                }
 
             return result;
+        }
+
+        public static Image<Gray, Byte> ConvertToBW(Image<Gray, Byte> img, decimal threshold)
+        {
+            Image<Gray, Byte> newImg = new Image<Gray, byte>(img.Size);
+            for (int i = 0; i < img.Size.Width; i++)
+                for (int j = 0; j < img.Size.Height; j++)
+                {
+                    var color = img.Data[j, i, 0];
+                    if (color < threshold) 
+                    {
+                        newImg.Data[j, i, 0] = 0;
+                    }
+                    else//nie wykryto
+                    {
+                        newImg.Data[j, i, 0] = 255;
+                    }
+                }
+            return newImg;
         }
     }
 
