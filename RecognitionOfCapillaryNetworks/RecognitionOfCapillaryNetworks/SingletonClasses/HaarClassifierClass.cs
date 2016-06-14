@@ -39,44 +39,45 @@ namespace RecognitionOfCapillaryNetworks.SingletonClasses
             var a = grayImage.Clone();
             Image<Gray, Byte> c = a.Convert<Byte>(delegate (Byte b) { return (Byte)(0); });
 
-            for(int i = 0; i < paths.Count; i++ )
+            for (int i = 0; i < paths.Count; i++)
             {
                 grayImage = img[1];
                 grayImage.ROI = Rectangle.Empty;
                 ClassifierPath = paths[i];
 
 
-            var detections = classifier.DetectMultiScale(grayImage, 1.05, 1, new Size(12, 12), new Size(240, 240));
+                var detections = classifier.DetectMultiScale(grayImage, scaleFactor, minNeighbors, new Size(maxNeighbors, maxNeighbors), new Size(maxSize, maxSize));
 
-            foreach (var detect in detections)
-            {
-                grayImage.ROI = detect;
-                var roi = grayImage.Clone();
-                //img.Draw(detect, new Bgr(Color.FromArgb(255, 0, 0)), 5);
-                numberOfDetection++;
-                c.ROI = detect;
-                roi = roi.Not();
-                roi = roi.ThresholdAdaptive(new Gray(255), Emgu.CV.CvEnum.AdaptiveThresholdType.MeanC, Emgu.CV.CvEnum.ThresholdType.Binary, 21, new Gray(-1));
-               
-                //if filter
-                roi._Erode(1);
-                roi._Dilate(1);
-                roi = roi.SmoothMedian(3);
+                foreach (var detect in detections)
+                {
+                    grayImage.ROI = detect;
+                    var roi = grayImage.Clone();
+                    //img.Draw(detect, new Bgr(Color.FromArgb(255, 0, 0)), 5);
+                    numberOfDetection++;
+                    c.ROI = detect;
+                    roi = roi.Not();
+                    roi = roi.ThresholdAdaptive(new Gray(255), Emgu.CV.CvEnum.AdaptiveThresholdType.MeanC, Emgu.CV.CvEnum.ThresholdType.Binary, 21, new Gray(-1));
 
-                roi.CopyTo(c);
-            }
+                    if (noiseFiltere)
+                    {
+                        roi._Erode(1);
+                        roi._Dilate(1);
+                        roi = roi.SmoothMedian(3);
+                    }
+                    roi.CopyTo(c);
+                }
 
 
             }
             c.ROI = Rectangle.Empty;
             resultImage = c.ToBitmap();
             img[0] = c;
-            
-            
-        #if DEBUG
-            Emgu.CV.CvInvoke.Imshow("dsadsa", c);      
+
+
+#if DEBUG
+            Emgu.CV.CvInvoke.Imshow("dsadsa", c);
             CvInvoke.WaitKey(2);
-        #endif
+#endif
             return img;
         }
 
@@ -92,7 +93,7 @@ namespace RecognitionOfCapillaryNetworks.SingletonClasses
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = new HaarClassifierClass();
                 }
