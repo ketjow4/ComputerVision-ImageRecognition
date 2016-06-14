@@ -74,9 +74,15 @@ namespace RecognitionOfCapillaryNetworks.Forms
             try
             {
                 int detection;
+                int scaleFactor, minNeighbors, minSize, maxSize;
                 Image tmp;
-                pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image), 
-                    int.Parse(scaleFactorBox.Text), int.Parse(minNeighborsBox.Text), int.Parse(maxSizeBox.Text), int.Parse(maxSizeBox.Text), noiseFilter.Checked,
+                int.TryParse(scaleFactorBox.Text,out scaleFactor);
+                int.TryParse(minNeighborsBox.Text, out minNeighbors);
+                int.TryParse(minSizeBox.Text, out minSize);
+                int.TryParse(maxSizeBox.Text, out maxSize);
+
+                pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image),
+                    scaleFactor, minNeighbors, minSize, maxSize, noiseFilter.Checked,
                     out detection, out tmp).ToBitmap();
                 processPictureBox.Image = tmp;
 #if DEBUG
@@ -125,7 +131,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
         private void segmentationButton_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
-            ofd.Filter = "*.jpg|*.jpg|*.png|*.png|*.gif|*.gif";
+            ofd.Filter = "*.jpg|*.jpg|*.png|*.png|*.gif|*.gif|*.tif|*.tif";
             ofd.Multiselect = false;
             if (ofd.ShowDialog() == DialogResult.OK)
             {
