@@ -13,9 +13,12 @@ namespace RecognitionOfCapillaryNetworks.Managers
     /// </summary>
     public class QualityManager
     {
-        public static QualityResult ComputeQualityOfImages(Image<Bgr, Byte> patternImage, Image<Bgr, Byte> computedImage)
+        public static QualityResult ComputeQualityOfImages(Image<Gray, Byte> patternImage, Image<Gray, Byte> computedImage)
         {
             var result = new QualityResult();
+
+            //foreach (var pixel in computedImage.)
+            //{ }
 
             return result;
         }
