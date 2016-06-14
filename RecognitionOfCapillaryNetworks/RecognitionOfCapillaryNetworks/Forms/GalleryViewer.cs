@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Emgu.CV;
-
+using Emgu.CV.Structure;
 
 namespace RecognitionOfCapillaryNetworks.Forms
 {
@@ -14,6 +14,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
         private FolderBrowserDialog folderBrowserDialog;
 
         private GalleryViewerManager manager;
+        
 
         public GalleryViewer()
         {
@@ -114,6 +115,23 @@ namespace RecognitionOfCapillaryNetworks.Forms
         Bitmap MatToBitmap(Mat srcImg)
         {
             return srcImg.Bitmap;
+        }
+
+        private void segmentationButton_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "*.jpg|*.png|*.gif";
+            ofd.Multiselect = false;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap masterImage = (Bitmap)Image.FromFile(ofd.FileName);
+                Image<Gray, Byte> normalizedMasterImage = new Image<Gray, Byte>(masterImage);
+
+                Bitmap processImage = (Bitmap)processPictureBox.Image;
+                Image<Gray, Byte> normalizedProcessImage = new Image<Gray, Byte>(masterImage);
+
+                QualityManager.ComputeQualityOfImages(normalizedMasterImage, normalizedProcessImage);
+            }
         }
     }
 }
