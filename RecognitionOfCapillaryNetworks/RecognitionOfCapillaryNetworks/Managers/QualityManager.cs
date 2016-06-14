@@ -25,18 +25,18 @@ namespace RecognitionOfCapillaryNetworks.Managers
                 {
                     var patternColor = patternImage.Data[j, i, 0];
                     var computedColor = computedImage.Data[j, i, 0];
-                    if (computedColor == 0) //wykryto
+                    if (computedColor == 255) //wykryto
                     {
-                        if (patternColor == 0)//true positive
+                        if (patternColor == 255)//true positive
                             result.TruePositives++;
                         else//false positive
                             result.FalsePositives++;
                     }
                     else//nie wykryto
                     {
-                        if (patternColor == 0)//true positive
+                        if (patternColor == 255)//false negative
                             result.FalseNegatives++;
-                        else//false positive
+                        else//true negatives
                             result.TrueNegatives++;
                     }                  
                 }
