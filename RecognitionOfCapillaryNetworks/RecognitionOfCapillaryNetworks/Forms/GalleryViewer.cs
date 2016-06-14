@@ -27,7 +27,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
 #if DEBUG
             pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
 
-            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\01_dr_gorsze.jpg");
+            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\lena.jpg");
 #endif
 
         }
@@ -74,8 +74,14 @@ namespace RecognitionOfCapillaryNetworks.Forms
             try
             {
                 int detection;
-                pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image), 
-                    int.Parse(scaleFactorBox.Text), int.Parse(minNeighborsBox.Text), int.Parse(maxSizeBox.Text), int.Parse(maxSizeBox.Text), noiseFilter.Checked,
+                int scaleFactor, minNeighbors, minSize, maxSize;
+                int.TryParse(scaleFactorBox.Text,out scaleFactor);
+                int.TryParse(minNeighborsBox.Text, out minNeighbors);
+                int.TryParse(minSizeBox.Text, out minSize);
+                int.TryParse(maxSizeBox.Text, out maxSize);
+
+                pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image),
+                    scaleFactor, minNeighbors, minSize, maxSize, noiseFilter.Checked,
                     out detection).ToBitmap();
 #if DEBUG
                 MessageBox.Show("Found: " + detection.ToString() + " features");
@@ -123,7 +129,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
         private void segmentationButton_Click(object sender, EventArgs e)
         {
             var ofd = new OpenFileDialog();
-            ofd.Filter = "*.jpg|*.jpg|*.png|*.png|*.gif|*.gif";
+            ofd.Filter = "*.jpg|*.jpg|*.png|*.png|*.gif|*.gif|*.tif|*.tif";
             ofd.Multiselect = false;
             if (ofd.ShowDialog() == DialogResult.OK)
             {
