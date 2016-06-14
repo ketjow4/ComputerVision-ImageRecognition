@@ -27,7 +27,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
 #if DEBUG
             pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
 
-            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\01_dr_gorsze.jpg");
+            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\lena.jpg");
 #endif
 
         }
@@ -74,9 +74,11 @@ namespace RecognitionOfCapillaryNetworks.Forms
             try
             {
                 int detection;
+                Image tmp;
                 pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image), 
                     int.Parse(scaleFactorBox.Text), int.Parse(minNeighborsBox.Text), int.Parse(maxSizeBox.Text), int.Parse(maxSizeBox.Text), noiseFilter.Checked,
-                    out detection).ToBitmap();
+                    out detection, out tmp).ToBitmap();
+                processPictureBox.Image = tmp;
 #if DEBUG
                 MessageBox.Show("Found: " + detection.ToString() + " features");
 #endif
