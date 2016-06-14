@@ -63,12 +63,15 @@
             this.tpLabel = new System.Windows.Forms.Label();
             this.specificityLabel = new System.Windows.Forms.Label();
             this.segmentationButton = new System.Windows.Forms.Button();
+            this.threshold = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processPictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.threshold)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureArea
@@ -162,9 +165,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.pictureArea);
             this.groupBox1.Controls.Add(this.processPictureBox);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(767, 542);
@@ -187,10 +192,14 @@
             this.groupBox2.Size = new System.Drawing.Size(323, 542);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Sterowanie plikami";
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.threshold);
             this.groupBox3.Controls.Add(this.noiseFilter);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
@@ -202,7 +211,7 @@
             this.groupBox3.Controls.Add(this.scaleFactorBox);
             this.groupBox3.Location = new System.Drawing.Point(767, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(217, 234);
+            this.groupBox3.Size = new System.Drawing.Size(217, 275);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sterowanie parametrami";
@@ -283,6 +292,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.specificityLabel);
             this.groupBox4.Controls.Add(this.tpLabel);
             this.groupBox4.Controls.Add(this.sensivityLabel);
@@ -295,9 +306,9 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.tnLabel);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(773, 240);
+            this.groupBox4.Location = new System.Drawing.Point(773, 281);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(211, 302);
+            this.groupBox4.Size = new System.Drawing.Size(211, 261);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Miary jakości segmentacji";
@@ -420,6 +431,27 @@
             this.segmentationButton.UseVisualStyleBackColor = true;
             this.segmentationButton.Click += new System.EventHandler(this.segmentationButton_Click);
             // 
+            // threshold
+            // 
+            this.threshold.Location = new System.Drawing.Point(6, 230);
+            this.threshold.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.threshold.Name = "threshold";
+            this.threshold.Size = new System.Drawing.Size(193, 20);
+            this.threshold.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 214);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Wartość progowa czerni";
+            // 
             // GalleryViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,7 +463,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(723, 577);
+            this.MinimumSize = new System.Drawing.Size(1329, 581);
             this.Name = "GalleryViewer";
             this.Text = "GalleryViewer";
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).EndInit();
@@ -443,6 +475,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.threshold)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -483,5 +516,7 @@
         private System.Windows.Forms.Label tnLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button segmentationButton;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown threshold;
     }
 }

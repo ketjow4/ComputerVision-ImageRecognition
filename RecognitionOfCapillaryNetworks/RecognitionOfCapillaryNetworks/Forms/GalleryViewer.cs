@@ -22,6 +22,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
             folderBrowserDialog = new FolderBrowserDialog();
             folderBrowserDialog.ShowNewFolderButton = false;
             InitializeComponent();
+            threshold.Value = 40;
             
 #if DEBUG
             pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
@@ -130,8 +131,19 @@ namespace RecognitionOfCapillaryNetworks.Forms
                 Bitmap processImage = (Bitmap)processPictureBox.Image;
                 Image<Gray, Byte> normalizedProcessImage = new Image<Gray, Byte>(masterImage);
 
-                QualityManager.ComputeQualityOfImages(normalizedMasterImage, normalizedProcessImage);
+                var result = QualityManager.ComputeQualityOfImages(normalizedMasterImage, normalizedProcessImage/*, threshold.Value*/);
+                SetQualityInformationLables(result);
             }
+        }
+
+        private void SetQualityInformationLables(QualityResult info)
+        {
+            tpLabel.Text = info.TruePositives.ToString();
+            tnLabel.Text = info.TrueNegatives.ToString();
+            fpLabel.Text = info.FalsePositives.ToString();
+            fnLabel.Text = info.FalseNegatives.ToString();
+            sensivityLabel.Text = info.Sensivity.ToString();
+            specificityLabel.Text = info.Specificity.ToString();
         }
     }
 }
