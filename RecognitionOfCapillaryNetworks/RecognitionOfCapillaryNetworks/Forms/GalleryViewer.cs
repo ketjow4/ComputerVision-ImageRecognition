@@ -24,6 +24,8 @@ namespace RecognitionOfCapillaryNetworks.Forms
             
 #if DEBUG
             pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
+
+            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\lena.jpg");
 #endif
 
         }
