@@ -74,7 +74,9 @@ namespace RecognitionOfCapillaryNetworks.Forms
             try
             {
                 int detection;
-                pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image),out detection).ToBitmap();
+                pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image), 
+                    int.Parse(scaleFactorBox.Text), int.Parse(minNeighborsBox.Text), int.Parse(maxSizeBox.Text), int.Parse(maxSizeBox.Text), noiseFilter.Checked,
+                    out detection).ToBitmap();
 #if DEBUG
                 MessageBox.Show("Found: " + detection.ToString() + " features");
 #endif
