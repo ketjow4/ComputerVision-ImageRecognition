@@ -65,6 +65,8 @@
             this.tnLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.UseManyClassifiers = new System.Windows.Forms.CheckBox();
+            this.DrawDetections = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processPictureBox)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -194,6 +196,8 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.DrawDetections);
+            this.groupBox3.Controls.Add(this.UseManyClassifiers);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.threshold);
             this.groupBox3.Controls.Add(this.noiseFilter);
@@ -207,7 +211,7 @@
             this.groupBox3.Controls.Add(this.scaleFactorBox);
             this.groupBox3.Location = new System.Drawing.Point(789, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(204, 265);
+            this.groupBox3.Size = new System.Drawing.Size(204, 346);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sterowanie parametrami";
@@ -334,9 +338,9 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.tnLabel);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(789, 274);
+            this.groupBox4.Location = new System.Drawing.Point(789, 355);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(204, 266);
+            this.groupBox4.Size = new System.Drawing.Size(204, 185);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Miary jakości segmentacji";
@@ -465,10 +469,30 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1313, 543);
             this.tableLayoutPanel1.TabIndex = 14;
+            // 
+            // UseManyClassifiers
+            // 
+            this.UseManyClassifiers.AutoSize = true;
+            this.UseManyClassifiers.Location = new System.Drawing.Point(6, 257);
+            this.UseManyClassifiers.Name = "UseManyClassifiers";
+            this.UseManyClassifiers.Size = new System.Drawing.Size(143, 17);
+            this.UseManyClassifiers.TabIndex = 24;
+            this.UseManyClassifiers.Text = "Użyj wielu klasyfikatorów";
+            this.UseManyClassifiers.UseVisualStyleBackColor = true;
+            // 
+            // DrawDetections
+            // 
+            this.DrawDetections.AutoSize = true;
+            this.DrawDetections.Location = new System.Drawing.Point(6, 281);
+            this.DrawDetections.Name = "DrawDetections";
+            this.DrawDetections.Size = new System.Drawing.Size(130, 17);
+            this.DrawDetections.TabIndex = 25;
+            this.DrawDetections.Text = "Rysuj wykryte obszary";
+            this.DrawDetections.UseVisualStyleBackColor = true;
             // 
             // GalleryViewer
             // 
@@ -533,5 +557,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown threshold;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.CheckBox DrawDetections;
+        private System.Windows.Forms.CheckBox UseManyClassifiers;
     }
 }

@@ -24,11 +24,11 @@ namespace RecognitionOfCapillaryNetworks.Forms
             InitializeComponent();
             threshold.Value = 40;
             
-#if DEBUG
-            pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
+//#if DEBUG
+//            pictureArea.Image = Image.FromFile(@"..\..\..\Content\len_full.jpg");
 
-            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\lena.jpg");
-#endif
+//            processPictureBox.Image = Image.FromFile(@"..\..\..\Content\lena.jpg");
+//#endif
 
         }
 
@@ -70,7 +70,6 @@ namespace RecognitionOfCapillaryNetworks.Forms
 
         private void RecognizeButton_Click(object sender, EventArgs e)
         {
-            //Mat a = BitmapToMat(new Bitmap(pictureArea.Image));
             try
             {
                 int detection;
@@ -83,7 +82,7 @@ namespace RecognitionOfCapillaryNetworks.Forms
                 int.TryParse(maxSizeBox.Text, out maxSize);
 
                 pictureArea.Image = HaarClassifierClass.Instance.DetectUsingCurrendClassifier(new Bitmap(pictureArea.Image),
-                    scaleFactor, minNeighbors, minSize, maxSize, noiseFilter.Checked,
+                    scaleFactor, minNeighbors, minSize, maxSize, noiseFilter.Checked, UseManyClassifiers.Checked, DrawDetections.Checked,
                     out detection, out tmp).ToBitmap();
                 processPictureBox.Image = tmp;
 #if DEBUG
