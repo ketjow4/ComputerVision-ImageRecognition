@@ -30,7 +30,7 @@ namespace RecognitionOfCapillaryNetworks.SingletonClasses
         /// <param name="imageToProcess">Zdjecie na ktorym maja byc znalezione obiekty</param>
         /// <param name="numberOfDetection">Liczba wykrytych obiektów</param>
         /// <returns>Zdjęcie z zaznaczonymi wykrytymi obiektami</returns>
-        public Image<Bgr, Byte> DetectUsingCurrendClassifier(Bitmap imageToProcess, int scaleFactor, int minNeighbors, int maxNeighbors, int maxSize, bool noiseFiltere, out int numberOfDetection, out Image resultImage)
+        public Image<Bgr, Byte> DetectUsingCurrendClassifier(Bitmap imageToProcess, double scaleFactor, int minNeighbors, int maxNeighbors, int maxSize, bool noiseFiltere, out int numberOfDetection, out Image resultImage)
         {
             numberOfDetection = 0;
             Image<Bgr, Byte> img = new Image<Bgr, Byte>(imageToProcess);

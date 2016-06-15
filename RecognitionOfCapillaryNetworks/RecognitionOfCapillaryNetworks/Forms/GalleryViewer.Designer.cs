@@ -37,9 +37,11 @@
             this.RecognizeButton = new System.Windows.Forms.Button();
             this.LoadHaarButton = new System.Windows.Forms.Button();
             this.processPictureBox = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.segmentationButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.threshold = new System.Windows.Forms.NumericUpDown();
             this.noiseFilter = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,28 +52,26 @@
             this.minNeighborsBox = new System.Windows.Forms.TextBox();
             this.scaleFactorBox = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tnLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.fpLabel = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.fnLabel = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.sensivityLabel = new System.Windows.Forms.Label();
-            this.tpLabel = new System.Windows.Forms.Label();
             this.specificityLabel = new System.Windows.Forms.Label();
-            this.segmentationButton = new System.Windows.Forms.Button();
-            this.threshold = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
+            this.tpLabel = new System.Windows.Forms.Label();
+            this.sensivityLabel = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.fnLabel = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.fpLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tnLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processPictureBox)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.threshold)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureArea
@@ -79,9 +79,10 @@
             this.pictureArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureArea.Location = new System.Drawing.Point(6, 19);
+            this.pictureArea.Location = new System.Drawing.Point(3, 3);
             this.pictureArea.Name = "pictureArea";
-            this.pictureArea.Size = new System.Drawing.Size(384, 517);
+            this.tableLayoutPanel1.SetRowSpan(this.pictureArea, 2);
+            this.pictureArea.Size = new System.Drawing.Size(387, 537);
             this.pictureArea.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureArea.TabIndex = 0;
             this.pictureArea.TabStop = false;
@@ -109,7 +110,7 @@
             // dirChooserButton
             // 
             this.dirChooserButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dirChooserButton.Location = new System.Drawing.Point(16, 67);
+            this.dirChooserButton.Location = new System.Drawing.Point(4, 67);
             this.dirChooserButton.Name = "dirChooserButton";
             this.dirChooserButton.Size = new System.Drawing.Size(75, 23);
             this.dirChooserButton.TabIndex = 5;
@@ -119,12 +120,10 @@
             // 
             // filesListBox
             // 
-            this.filesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.filesListBox.FormattingEnabled = true;
-            this.filesListBox.Location = new System.Drawing.Point(16, 96);
+            this.filesListBox.Location = new System.Drawing.Point(4, 96);
             this.filesListBox.Name = "filesListBox";
-            this.filesListBox.Size = new System.Drawing.Size(301, 420);
+            this.filesListBox.Size = new System.Drawing.Size(301, 680);
             this.filesListBox.TabIndex = 6;
             this.filesListBox.Click += new System.EventHandler(this.filesListBox_Click);
             this.filesListBox.SelectedIndexChanged += new System.EventHandler(this.filesListBox_SelectedIndexChanged);
@@ -132,7 +131,7 @@
             // RecognizeButton
             // 
             this.RecognizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RecognizeButton.Location = new System.Drawing.Point(97, 67);
+            this.RecognizeButton.Location = new System.Drawing.Point(85, 67);
             this.RecognizeButton.Name = "RecognizeButton";
             this.RecognizeButton.Size = new System.Drawing.Size(75, 23);
             this.RecognizeButton.TabIndex = 7;
@@ -143,7 +142,7 @@
             // LoadHaarButton
             // 
             this.LoadHaarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoadHaarButton.Location = new System.Drawing.Point(179, 67);
+            this.LoadHaarButton.Location = new System.Drawing.Point(167, 67);
             this.LoadHaarButton.Name = "LoadHaarButton";
             this.LoadHaarButton.Size = new System.Drawing.Size(138, 23);
             this.LoadHaarButton.TabIndex = 8;
@@ -156,26 +155,13 @@
             this.processPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.processPictureBox.Location = new System.Drawing.Point(396, 19);
+            this.processPictureBox.Location = new System.Drawing.Point(396, 3);
             this.processPictureBox.Name = "processPictureBox";
-            this.processPictureBox.Size = new System.Drawing.Size(365, 517);
+            this.tableLayoutPanel1.SetRowSpan(this.processPictureBox, 2);
+            this.processPictureBox.Size = new System.Drawing.Size(387, 537);
             this.processPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.processPictureBox.TabIndex = 9;
             this.processPictureBox.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.pictureArea);
-            this.groupBox1.Controls.Add(this.processPictureBox);
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(767, 542);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Obrazy";
             // 
             // groupBox2
             // 
@@ -186,13 +172,23 @@
             this.groupBox2.Controls.Add(this.dirChooserButton);
             this.groupBox2.Controls.Add(this.dirName);
             this.groupBox2.Controls.Add(this.RecognizeButton);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox2.Location = new System.Drawing.Point(990, 0);
+            this.groupBox2.Location = new System.Drawing.Point(999, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(323, 542);
+            this.tableLayoutPanel1.SetRowSpan(this.groupBox2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(311, 537);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sterowanie plikami";
+            // 
+            // segmentationButton
+            // 
+            this.segmentationButton.Location = new System.Drawing.Point(16, 38);
+            this.segmentationButton.Name = "segmentationButton";
+            this.segmentationButton.Size = new System.Drawing.Size(156, 23);
+            this.segmentationButton.TabIndex = 12;
+            this.segmentationButton.Text = "Oblicz miary jakości";
+            this.segmentationButton.UseVisualStyleBackColor = true;
+            this.segmentationButton.Click += new System.EventHandler(this.segmentationButton_Click);
             // 
             // groupBox3
             // 
@@ -209,16 +205,44 @@
             this.groupBox3.Controls.Add(this.minSizeBox);
             this.groupBox3.Controls.Add(this.minNeighborsBox);
             this.groupBox3.Controls.Add(this.scaleFactorBox);
-            this.groupBox3.Location = new System.Drawing.Point(767, 0);
+            this.groupBox3.Location = new System.Drawing.Point(789, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(217, 275);
+            this.groupBox3.Size = new System.Drawing.Size(204, 265);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sterowanie parametrami";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 214);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(122, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Wartość progowa czerni";
+            // 
+            // threshold
+            // 
+            this.threshold.Location = new System.Drawing.Point(6, 230);
+            this.threshold.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.threshold.Name = "threshold";
+            this.threshold.Size = new System.Drawing.Size(193, 20);
+            this.threshold.TabIndex = 22;
+            this.threshold.Value = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            // 
             // noiseFilter
             // 
             this.noiseFilter.AutoSize = true;
+            this.noiseFilter.Checked = true;
+            this.noiseFilter.CheckState = System.Windows.Forms.CheckState.Checked;
             this.noiseFilter.Location = new System.Drawing.Point(6, 194);
             this.noiseFilter.Name = "noiseFilter";
             this.noiseFilter.Size = new System.Drawing.Size(103, 17);
@@ -268,6 +292,7 @@
             this.maxSizeBox.Name = "maxSizeBox";
             this.maxSizeBox.Size = new System.Drawing.Size(205, 20);
             this.maxSizeBox.TabIndex = 16;
+            this.maxSizeBox.Text = "200";
             // 
             // minSizeBox
             // 
@@ -275,6 +300,7 @@
             this.minSizeBox.Name = "minSizeBox";
             this.minSizeBox.Size = new System.Drawing.Size(205, 20);
             this.minSizeBox.TabIndex = 15;
+            this.minSizeBox.Text = "10";
             // 
             // minNeighborsBox
             // 
@@ -282,6 +308,7 @@
             this.minNeighborsBox.Name = "minNeighborsBox";
             this.minNeighborsBox.Size = new System.Drawing.Size(205, 20);
             this.minNeighborsBox.TabIndex = 14;
+            this.minNeighborsBox.Text = "1";
             // 
             // scaleFactorBox
             // 
@@ -289,6 +316,7 @@
             this.scaleFactorBox.Name = "scaleFactorBox";
             this.scaleFactorBox.Size = new System.Drawing.Size(205, 20);
             this.scaleFactorBox.TabIndex = 13;
+            this.scaleFactorBox.Text = "1,1";
             // 
             // groupBox4
             // 
@@ -306,111 +334,12 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.tnLabel);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Location = new System.Drawing.Point(773, 281);
+            this.groupBox4.Location = new System.Drawing.Point(789, 274);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(211, 261);
+            this.groupBox4.Size = new System.Drawing.Size(204, 266);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Miary jakości segmentacji";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 71);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "TP:";
-            // 
-            // tnLabel
-            // 
-            this.tnLabel.AutoSize = true;
-            this.tnLabel.Location = new System.Drawing.Point(91, 84);
-            this.tnLabel.Name = "tnLabel";
-            this.tnLabel.Size = new System.Drawing.Size(28, 13);
-            this.tnLabel.TabIndex = 1;
-            this.tnLabel.Text = "brak";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "TN:";
-            // 
-            // fpLabel
-            // 
-            this.fpLabel.AutoSize = true;
-            this.fpLabel.Location = new System.Drawing.Point(91, 97);
-            this.fpLabel.Name = "fpLabel";
-            this.fpLabel.Size = new System.Drawing.Size(28, 13);
-            this.fpLabel.TabIndex = 3;
-            this.fpLabel.Text = "brak";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 97);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "FP:";
-            // 
-            // fnLabel
-            // 
-            this.fnLabel.AutoSize = true;
-            this.fnLabel.Location = new System.Drawing.Point(91, 110);
-            this.fnLabel.Name = "fnLabel";
-            this.fnLabel.Size = new System.Drawing.Size(28, 13);
-            this.fnLabel.TabIndex = 5;
-            this.fnLabel.Text = "brak";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 110);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(24, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "FN:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 123);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 13);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Wrażliwość:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 136);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(79, 13);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Specyficzność:";
-            // 
-            // sensivityLabel
-            // 
-            this.sensivityLabel.AutoSize = true;
-            this.sensivityLabel.Location = new System.Drawing.Point(91, 123);
-            this.sensivityLabel.Name = "sensivityLabel";
-            this.sensivityLabel.Size = new System.Drawing.Size(28, 13);
-            this.sensivityLabel.TabIndex = 9;
-            this.sensivityLabel.Text = "brak";
-            // 
-            // tpLabel
-            // 
-            this.tpLabel.AutoSize = true;
-            this.tpLabel.Location = new System.Drawing.Point(91, 71);
-            this.tpLabel.Name = "tpLabel";
-            this.tpLabel.Size = new System.Drawing.Size(28, 13);
-            this.tpLabel.TabIndex = 10;
-            this.tpLabel.Text = "brak";
             // 
             // specificityLabel
             // 
@@ -421,61 +350,147 @@
             this.specificityLabel.TabIndex = 11;
             this.specificityLabel.Text = "brak";
             // 
-            // segmentationButton
+            // tpLabel
             // 
-            this.segmentationButton.Location = new System.Drawing.Point(16, 38);
-            this.segmentationButton.Name = "segmentationButton";
-            this.segmentationButton.Size = new System.Drawing.Size(156, 23);
-            this.segmentationButton.TabIndex = 12;
-            this.segmentationButton.Text = "Oblicz miary jakości";
-            this.segmentationButton.UseVisualStyleBackColor = true;
-            this.segmentationButton.Click += new System.EventHandler(this.segmentationButton_Click);
+            this.tpLabel.AutoSize = true;
+            this.tpLabel.Location = new System.Drawing.Point(91, 71);
+            this.tpLabel.Name = "tpLabel";
+            this.tpLabel.Size = new System.Drawing.Size(28, 13);
+            this.tpLabel.TabIndex = 10;
+            this.tpLabel.Text = "brak";
             // 
-            // threshold
+            // sensivityLabel
             // 
-            this.threshold.Location = new System.Drawing.Point(6, 230);
-            this.threshold.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.threshold.Name = "threshold";
-            this.threshold.Size = new System.Drawing.Size(193, 20);
-            this.threshold.TabIndex = 22;
+            this.sensivityLabel.AutoSize = true;
+            this.sensivityLabel.Location = new System.Drawing.Point(91, 123);
+            this.sensivityLabel.Name = "sensivityLabel";
+            this.sensivityLabel.Size = new System.Drawing.Size(28, 13);
+            this.sensivityLabel.TabIndex = 9;
+            this.sensivityLabel.Text = "brak";
             // 
-            // label6
+            // label13
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 214);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 13);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Wartość progowa czerni";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 136);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(79, 13);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Specyficzność:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 13);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Wrażliwość:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 110);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(24, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "FN:";
+            // 
+            // fnLabel
+            // 
+            this.fnLabel.AutoSize = true;
+            this.fnLabel.Location = new System.Drawing.Point(91, 110);
+            this.fnLabel.Name = "fnLabel";
+            this.fnLabel.Size = new System.Drawing.Size(28, 13);
+            this.fnLabel.TabIndex = 5;
+            this.fnLabel.Text = "brak";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 97);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(23, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "FP:";
+            // 
+            // fpLabel
+            // 
+            this.fpLabel.AutoSize = true;
+            this.fpLabel.Location = new System.Drawing.Point(91, 97);
+            this.fpLabel.Name = "fpLabel";
+            this.fpLabel.Size = new System.Drawing.Size(28, 13);
+            this.fpLabel.TabIndex = 3;
+            this.fpLabel.Text = "brak";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "TN:";
+            // 
+            // tnLabel
+            // 
+            this.tnLabel.AutoSize = true;
+            this.tnLabel.Location = new System.Drawing.Point(91, 84);
+            this.tnLabel.Name = "tnLabel";
+            this.tnLabel.Size = new System.Drawing.Size(28, 13);
+            this.tnLabel.TabIndex = 1;
+            this.tnLabel.Text = "brak";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "TP:";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tableLayoutPanel1.Controls.Add(this.processPictureBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox2, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pictureArea, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox3, 2, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1313, 543);
+            this.tableLayoutPanel1.TabIndex = 14;
             // 
             // GalleryViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1313, 542);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1313, 543);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1329, 581);
             this.Name = "GalleryViewer";
             this.Text = "GalleryViewer";
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.processPictureBox)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.threshold)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.threshold)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -490,7 +505,6 @@
         private System.Windows.Forms.Button RecognizeButton;
         private System.Windows.Forms.Button LoadHaarButton;
         private System.Windows.Forms.PictureBox processPictureBox;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
@@ -518,5 +532,6 @@
         private System.Windows.Forms.Button segmentationButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown threshold;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

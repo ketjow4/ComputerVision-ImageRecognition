@@ -74,9 +74,10 @@ namespace RecognitionOfCapillaryNetworks.Forms
             try
             {
                 int detection;
-                int scaleFactor, minNeighbors, minSize, maxSize;
+                double scaleFactor;
+                int minNeighbors, minSize, maxSize;
                 Image tmp;
-                int.TryParse(scaleFactorBox.Text,out scaleFactor);
+                double.TryParse(scaleFactorBox.Text,out scaleFactor);
                 int.TryParse(minNeighborsBox.Text, out minNeighbors);
                 int.TryParse(minSizeBox.Text, out minSize);
                 int.TryParse(maxSizeBox.Text, out maxSize);
