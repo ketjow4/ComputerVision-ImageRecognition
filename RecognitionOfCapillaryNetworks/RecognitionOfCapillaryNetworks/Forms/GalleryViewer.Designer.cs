@@ -123,7 +123,7 @@
             this.filesListBox.FormattingEnabled = true;
             this.filesListBox.Location = new System.Drawing.Point(4, 96);
             this.filesListBox.Name = "filesListBox";
-            this.filesListBox.Size = new System.Drawing.Size(301, 680);
+            this.filesListBox.Size = new System.Drawing.Size(301, 433);
             this.filesListBox.TabIndex = 6;
             this.filesListBox.Click += new System.EventHandler(this.filesListBox_Click);
             this.filesListBox.SelectedIndexChanged += new System.EventHandler(this.filesListBox_SelectedIndexChanged);
@@ -182,7 +182,7 @@
             // 
             // segmentationButton
             // 
-            this.segmentationButton.Location = new System.Drawing.Point(16, 38);
+            this.segmentationButton.Location = new System.Drawing.Point(4, 38);
             this.segmentationButton.Name = "segmentationButton";
             this.segmentationButton.Size = new System.Drawing.Size(156, 23);
             this.segmentationButton.TabIndex = 12;

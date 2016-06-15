@@ -21,7 +21,7 @@ namespace RecognitionOfCapillaryNetworks.SingletonClasses
         {
             var p = Directory.GetFiles(@".\HaarClassifiers", "*.xml");
             paths.AddRange(p);
-            classifier = new CascadeClassifier(classifierPath);
+            classifier = new CascadeClassifier(p[0]);
         }
 
         /// <summary>
