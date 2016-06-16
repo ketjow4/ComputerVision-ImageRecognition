@@ -40,6 +40,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.segmentationButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.DrawDetections = new System.Windows.Forms.CheckBox();
+            this.UseManyClassifiers = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.threshold = new System.Windows.Forms.NumericUpDown();
             this.noiseFilter = new System.Windows.Forms.CheckBox();
@@ -65,8 +67,6 @@
             this.tnLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.UseManyClassifiers = new System.Windows.Forms.CheckBox();
-            this.DrawDetections = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.processPictureBox)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -78,9 +78,7 @@
             // 
             // pictureArea
             // 
-            this.pictureArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureArea.Location = new System.Drawing.Point(3, 3);
             this.pictureArea.Name = "pictureArea";
             this.tableLayoutPanel1.SetRowSpan(this.pictureArea, 2);
@@ -154,9 +152,7 @@
             // 
             // processPictureBox
             // 
-            this.processPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.processPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.processPictureBox.Location = new System.Drawing.Point(396, 3);
             this.processPictureBox.Name = "processPictureBox";
             this.tableLayoutPanel1.SetRowSpan(this.processPictureBox, 2);
@@ -215,6 +211,26 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sterowanie parametrami";
+            // 
+            // DrawDetections
+            // 
+            this.DrawDetections.AutoSize = true;
+            this.DrawDetections.Location = new System.Drawing.Point(6, 281);
+            this.DrawDetections.Name = "DrawDetections";
+            this.DrawDetections.Size = new System.Drawing.Size(130, 17);
+            this.DrawDetections.TabIndex = 25;
+            this.DrawDetections.Text = "Rysuj wykryte obszary";
+            this.DrawDetections.UseVisualStyleBackColor = true;
+            // 
+            // UseManyClassifiers
+            // 
+            this.UseManyClassifiers.AutoSize = true;
+            this.UseManyClassifiers.Location = new System.Drawing.Point(6, 257);
+            this.UseManyClassifiers.Name = "UseManyClassifiers";
+            this.UseManyClassifiers.Size = new System.Drawing.Size(143, 17);
+            this.UseManyClassifiers.TabIndex = 24;
+            this.UseManyClassifiers.Text = "Użyj wielu klasyfikatorów";
+            this.UseManyClassifiers.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -455,6 +471,8 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
@@ -473,26 +491,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1313, 543);
             this.tableLayoutPanel1.TabIndex = 14;
-            // 
-            // UseManyClassifiers
-            // 
-            this.UseManyClassifiers.AutoSize = true;
-            this.UseManyClassifiers.Location = new System.Drawing.Point(6, 257);
-            this.UseManyClassifiers.Name = "UseManyClassifiers";
-            this.UseManyClassifiers.Size = new System.Drawing.Size(143, 17);
-            this.UseManyClassifiers.TabIndex = 24;
-            this.UseManyClassifiers.Text = "Użyj wielu klasyfikatorów";
-            this.UseManyClassifiers.UseVisualStyleBackColor = true;
-            // 
-            // DrawDetections
-            // 
-            this.DrawDetections.AutoSize = true;
-            this.DrawDetections.Location = new System.Drawing.Point(6, 281);
-            this.DrawDetections.Name = "DrawDetections";
-            this.DrawDetections.Size = new System.Drawing.Size(130, 17);
-            this.DrawDetections.TabIndex = 25;
-            this.DrawDetections.Text = "Rysuj wykryte obszary";
-            this.DrawDetections.UseVisualStyleBackColor = true;
             // 
             // GalleryViewer
             // 
@@ -516,6 +514,7 @@
             this.groupBox4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
