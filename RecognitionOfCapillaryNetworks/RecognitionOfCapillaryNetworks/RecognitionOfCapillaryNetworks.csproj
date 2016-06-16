@@ -207,7 +207,6 @@
     <Content Include="OpenCV\opencv_world310d.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\len_full.jpg" />
     <Content Include="X64\cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
